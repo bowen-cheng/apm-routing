@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { MessageService } from '../messages/message.service';
 
-import { IUser } from './user';
+import { User } from './user';
 
 @Injectable()
 export class AuthService {
-  currentUser: IUser;
+  currentUser: User;
 
   constructor(private messageService: MessageService) { }
 

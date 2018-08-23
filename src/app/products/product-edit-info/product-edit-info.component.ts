@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  templateUrl: './app/products/product-edit-info.component.html'
+  templateUrl: './product-edit-info.component.html'
 })
 export class ProductEditInfoComponent implements OnInit {
   @ViewChild(NgForm) productForm: NgForm;

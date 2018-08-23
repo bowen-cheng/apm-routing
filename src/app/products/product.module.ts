@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
 import { SharedModule } from '../shared/shared.module';
-import { ProductDetailComponent } from './product-detail.component';
-import { ProductEditComponent } from './product-edit.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 import { ProductFilterPipe } from './product-filter.pipe';
 

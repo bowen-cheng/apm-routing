@@ -1,5 +1,5 @@
 /* Defines the product entity */
-export interface IProduct {
+export interface Product {
   id: number;
   productName: string;
   productCode: string;

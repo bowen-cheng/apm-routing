@@ -4,7 +4,7 @@ import { AuthService } from './user/auth.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app/app.component.html'
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   pageTitle: string = 'Acme Product Management';

@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 
-import { IProduct } from './product';
-import { ProductService } from './product.service';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
-  templateUrl: './app/products/product-detail.component.html'
+  templateUrl: './product-detail.component.html'
 })
 export class ProductDetailComponent {
   pageTitle: string = 'Product Detail';
-  product: IProduct;
+  product: Product;
   errorMessage: string;
 
   constructor(private productService: ProductService) { }

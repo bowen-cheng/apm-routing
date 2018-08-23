@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 
-import { MessageService } from '../messages/message.service';
+import { MessageService } from '../../messages/message.service';
 
-import { IProduct } from './product';
-import { ProductService } from './product.service';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
-  templateUrl: './app/products/product-edit.component.html',
-  styleUrls: ['./app/products/product-edit.component.css']
+  templateUrl: './product-edit.component.html',
+  styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent {
   pageTitle: string = 'Product Edit';
   errorMessage: string;
 
-  product: IProduct;
+  product: Product;
 
   constructor(private productService: ProductService,
               private messageService: MessageService) { }
@@ -21,12 +21,12 @@ export class ProductEditComponent {
   getProduct(id: number): void {
     this.productService.getProduct(id)
       .subscribe(
-        (product: IProduct) => this.onProductRetrieved(product),
+        (product: Product) => this.onProductRetrieved(product),
         (error: any) => this.errorMessage = <any>error
       );
   }
 
-  onProductRetrieved(product: IProduct): void {
+  onProductRetrieved(product: Product): void {
     this.product = product;
 
     if (this.product.id === 0) {

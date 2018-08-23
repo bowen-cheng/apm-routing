@@ -5,8 +5,8 @@
       <legend>Product Search Tags</legend>
       <div class="form-group"
            [ngClass]="{'has-error': (categoryVar.touched ||
-                                              categoryVar.dirty || product.id !== 0) && 
-                                              !categoryVar.valid }">
+                                    categoryVar.dirty || product.id !== 0) &&
+                                    !categoryVar.valid }">
         <label class="col-md-2 control-label" for="categoryId">Category</label>
         <div class="col-md-8">
           <input class="form-control"
