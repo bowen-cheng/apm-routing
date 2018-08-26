@@ -7,7 +7,7 @@ import { ProductService } from '../product.service';
   templateUrl: './product-detail.component.html'
 })
 export class ProductDetailComponent {
-  pageTitle: string = 'Product Detail';
+  pageTitle = 'Product Detail';
   product: Product;
   errorMessage: string;
 

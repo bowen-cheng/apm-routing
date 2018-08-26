@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -16,7 +15,6 @@ import { UserModule } from './user/user.module';
 @NgModule({
   imports: [
     BrowserModule,
-    HttpModule,
     InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
     ProductModule,
     UserModule,

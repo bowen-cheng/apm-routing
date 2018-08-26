@@ -10,7 +10,7 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent {
-  pageTitle: string = 'Product Edit';
+  pageTitle = 'Product Edit';
   errorMessage: string;
 
   product: Product;
