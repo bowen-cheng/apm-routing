@@ -5,13 +5,19 @@
       <ul class="nav navbar-nav">
         <li>
           <!-- $$
-          remember to prefix the URL segment with a slash
+          Remember to prefix the URL segment with a slash
           The value of this routerLink directive is a simple string, so we can omit the square brackets
           -->
           <a routerLink="/welcome">Home</a>
         </li>
         <li>
-          <a>Product List</a>
+          <!-- $$
+          Leading slash is needed in routerLink directive but NOT in the route config:
+          RouterModule.forChild([
+            {path: 'products', component: ProductListComponent }
+          ])
+          -->
+          <a routerLink="/products">Product List</a>
         </li>
         <li>
           <a>Add Product</a>

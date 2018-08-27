@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
@@ -11,7 +12,11 @@ import { ProductService } from './product.service';
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
+    RouterModule.forChild([
+      // $$ 'path' property does not need a leading slash but routerLink directive does: <a routerLink='/products'></a>
+      {path: 'products', component: ProductListComponent }
+    ])
   ],
   declarations: [
     ProductListComponent,

@@ -18,7 +18,9 @@ import { UserModule } from './user/user.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
+    InMemoryWebApiModule.forRoot(ProductData, { delay: 500 }),
+    // $$ Note that ProductModule and UserModule are imported before the root route config (RouterModule.forRoot(...)).
+    // The order of importing matters because feature modules have their own route config declared (RouterModule.forChild(...)).
     ProductModule,
     UserModule,
     MessageModule,
