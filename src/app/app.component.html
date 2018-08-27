@@ -4,7 +4,11 @@
       <a class="navbar-brand">{{pageTitle}}</a>
       <ul class="nav navbar-nav">
         <li>
-          <a>Home</a>
+          <!-- $$
+          remember to prefix the URL segment with a slash
+          The value of this routerLink directive is a simple string, so we can omit the square brackets
+          -->
+          <a routerLink="/welcome">Home</a>
         </li>
         <li>
           <a>Product List</a>
@@ -30,6 +34,6 @@
     </div>
   </nav>
   <div class="container">
-    <app-home></app-home>
+    <router-outlet></router-outlet>
   </div>
 </div>
