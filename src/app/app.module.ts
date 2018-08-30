@@ -1,9 +1,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
@@ -24,12 +24,9 @@ import { UserModule } from './user/user.module';
     ProductModule,
     UserModule,
     MessageModule,
-    // $$ orders matter as first match wins
-    RouterModule.forRoot([
-      { path: 'welcome', component: WelcomeComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', component: PageNotFoundComponent }
-    ])
+    AppRoutingModule
+    // $$ No need to import RouterModule any more because it is already import and exported by one of the modules above (AppRoutingModule)
+    // RouterModule
   ],
   declarations: [
     AppComponent,
