@@ -14,8 +14,11 @@ import { ProductService } from './product.service';
   imports: [
     SharedModule,
     RouterModule.forChild([
-      // $$ 'path' property does not need a leading slash but routerLink directive does: <a routerLink='/products'></a>
-      {path: 'products', component: ProductListComponent }
+      // $$ The 'path' property does not need a leading slash but routerLink directive does: <a routerLink='/products'></a>
+      { path: 'products', component: ProductListComponent },
+      // $$ The colon (:) symbol identifies a place holder variable, there can be as many as needed as long as they have unique names
+      { path: 'products/:id', component: ProductDetailComponent },
+      { path: 'products/:id/edit', component: ProductEditComponent }
     ])
   ],
   declarations: [
