@@ -55,8 +55,10 @@
   </div>
 
   <div class="panel-footer">
-    <a routerLink="/products" class="btn btn-default">
-      <i class="glyphicon glyphicon-chevron-left"></i> Back
+    <!-- $$: The query parameters can be preserved across routes, but it's not the default behaviour -->
+    <a routerLink="/products" queryParamsHandling="preserve" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Back
     </a>
     <!-- $$ Only the first URL segment needs the slash prefix -->
     <a [routerLink]="['/products', product.id, 'edit']" class="btn btn-primary" style="width:80px;margin-left:10px">
