@@ -18,10 +18,10 @@ import { ProductService } from './product.service';
       // $$ The 'path' property does not need a leading slash but routerLink directive does: <a routerLink='/products'></a>
       { path: 'products', component: ProductListComponent },
       {
-      // $$ The colon (:) symbol identifies a place holder variable, there can be as many as needed as long as they have unique names
+        // $$ The colon (:) symbol identifies a place holder variable, there can be as many as needed as long as they have unique names
         path: 'products/:id', component: ProductDetailComponent,
         // $$ The list of resolvers is key-value pairs, where the key is a logical name, the value is a reference to the resolver service
-        // $$ The key is used for retrieving data later in the component class
+        // $$ The key, "product", is used for retrieving data later in the component class
         resolve: { product: ProductResolverService }
       },
       {
