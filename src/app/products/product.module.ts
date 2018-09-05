@@ -8,7 +8,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductFilterPipe } from './product-filter.pipe';
 
 import { ProductListComponent } from './product-list/product-list.component';
-import { ProductResolverService } from './product-resover.service';
+import { ProductResolverService } from './product-resolver.service';
 import { ProductService } from './product.service';
 
 @NgModule({
