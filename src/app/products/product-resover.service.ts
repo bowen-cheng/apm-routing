@@ -4,11 +4,10 @@ import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 import { Product } from './product';
-import { ProductModule } from './product.module';
 import { ProductService } from './product.service';
 
 @Injectable({
-  providedIn: ProductModule
+  providedIn: 'root'
 })
 export class ProductResolverService implements Resolve<Product> {
 
