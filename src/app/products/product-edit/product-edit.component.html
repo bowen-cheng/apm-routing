@@ -5,8 +5,9 @@
 
   <div class="panel-body" *ngIf="product">
     <div class="wizard">
-      <a>Basic Information</a>
-      <a>Search Tags</a>
+      <!-- These router link values do not have slash prefixes because they are relative paths -->
+      <a routerLink="info">Basic Information</a>
+      <a [routerLink]="['tags']">Search Tags</a>
     </div>
 
     <!-- $$ The child route templates are placed here -->

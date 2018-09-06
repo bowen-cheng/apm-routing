@@ -18,6 +18,7 @@ import { ProductService } from './product.service';
     SharedModule,
     RouterModule.forChild([
       // $$ The 'path' property does not need a leading slash but routerLink directive does: <a routerLink='/products'></a>
+      // Route paths with a leading slash are absolute path. E.g. starting from the root URL
       { path: 'products', component: ProductListComponent },
       {
         // $$ The colon (:) symbol identifies a place holder variable, there can be as many as needed as long as they have unique names
