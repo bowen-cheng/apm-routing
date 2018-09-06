@@ -18,6 +18,7 @@ export class ProductEditInfoComponent implements OnInit {
     // $$ Data for product is retrieved from parent's route resolver
     this.route.parent.data.subscribe(data => {
       this.product = data['product'];
+      this.productForm.reset();
     });
   }
 }
