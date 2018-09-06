@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductEditInfoComponent } from './product-edit-info/product-edit-info.component';
+import { ProductEditTagsComponent } from './product-edit-tags/product-edit-tags.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 
 import { ProductFilterPipe } from './product-filter.pipe';
@@ -26,7 +28,16 @@ import { ProductService } from './product.service';
       },
       {
         path: 'products/:id/edit', component: ProductEditComponent,
-        resolve: { product: ProductResolverService }
+        resolve: { product: ProductResolverService },
+        // $$ The children array is used for defining child routes
+        // All paths of the child arrays are appended after the path of parent routes
+        children: [
+          // $$ full path: products/:id/edit/info
+          { path: 'info', component: ProductEditInfoComponent },
+          // $$ full path: products/:id/edit/tags
+          { path: 'tags', component: ProductEditTagsComponent },
+          { path: '', redirectTo: 'info', pathMatch: 'full' }
+        ]
       }
     ])
   ],
@@ -34,6 +45,8 @@ import { ProductService } from './product.service';
     ProductListComponent,
     ProductDetailComponent,
     ProductEditComponent,
+    ProductEditInfoComponent,
+    ProductEditTagsComponent,
     ProductFilterPipe
   ],
   providers: [
