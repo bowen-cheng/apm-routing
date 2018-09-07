@@ -11,10 +11,12 @@ import { ProductService } from '../product.service';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
-  pageTitle = 'Product Edit';
-  errorMessage: string;
+  protected pageTitle = 'Product Edit';
+  protected errorMessage: string;
 
-  product: Product;
+  protected product: Product;
+
+  private dataIsValid: { [key: string]: boolean };
 
   constructor(private productService: ProductService,
               private messageService: MessageService,
@@ -69,7 +71,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   saveProduct(): void {
-    if (true === true) {
+    if (this.isValid(null)) {
       this.productService.saveProduct(this.product)
         .subscribe(
           () => this.onSaveComplete(`${this.product.productName} was saved`),
@@ -87,5 +89,23 @@ export class ProductEditComponent implements OnInit {
 
     // Navigate back to the product list
     this.router.navigateByUrl('products');
+  }
+
+  isValid(path: 'info' | 'tags' | null): boolean {
+    this.validate();
+    if (!!path) {
+      return this.dataIsValid[path];
+    } else {
+      return !!this.dataIsValid && this.dataIsValid['info'] && this.dataIsValid['tags'];
+    }
+  }
+
+  validate(): void {
+    this.dataIsValid = {};
+
+    // "info" tab
+    this.dataIsValid['info'] = !!(this.product.productName && this.product.productName.length >= 3 && this.product.productCode);
+    // "tags" tab
+    this.dataIsValid['tags'] = !!(this.product.category && this.product.category.length >= 3);
   }
 }
