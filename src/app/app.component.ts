@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
 
 import { AuthService } from './user/auth.service';
 
@@ -8,9 +8,26 @@ import { AuthService } from './user/auth.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  pageTitle = 'Acme Product Management';
+  protected pageTitle = 'Acme Product Management';
+  protected isLoading = false;
 
-  constructor(protected authService: AuthService, private router: Router) { }
+  constructor(protected authService: AuthService, private router: Router) {
+    // $$ Subscribe to navigation event changes and update isLoading flag as event changes
+    router.events.subscribe((routerEvent: RouterEvent) => {
+      this.checkRouterEvent(routerEvent);
+    });
+  }
+
+  checkRouterEvent(event: RouterEvent): void {
+    if (event instanceof NavigationStart) {
+      this.isLoading = true;
+    }
+    if (event instanceof NavigationEnd
+      || event instanceof NavigationCancel
+      || event instanceof NavigationError) {
+      this.isLoading = false;
+    }
+  }
 
   logOut(): void {
     // $$ navigateByUrl clears all secondary routes and route parameters

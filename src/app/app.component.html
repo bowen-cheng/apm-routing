@@ -1,3 +1,4 @@
+<span class="spinner glyphicon glyphicon-refresh glyphicon-spin" *ngIf="isLoading"></span>
 <div>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -10,6 +11,7 @@
           -->
           <a routerLink="/welcome">Home</a>
         </li>
+        <!-- $$ {exact: true} prevents this routerLinkActive property to match any routes start with '/products' -->
         <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <!-- $$
           Leading slash is needed in routerLink directive but NOT in the route config:

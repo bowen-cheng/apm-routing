@@ -9,10 +9,13 @@ import { PageNotFoundComponent } from './page-not-found.component';
     CommonModule,
     // $$ orders matter as first match wins
     RouterModule.forRoot([
-      { path: 'welcome', component: WelcomeComponent },
-      { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-      { path: '**', component: PageNotFoundComponent }
-    ])
+        { path: 'welcome', component: WelcomeComponent },
+        { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+        { path: '**', component: PageNotFoundComponent }
+      ],
+      // $$ this logs navigation events into browser console
+      { enableTracing: true }
+    )
   ],
   exports: [
     // $$ Export the RouterModule so that the root AppModule doesn't have to import it again
