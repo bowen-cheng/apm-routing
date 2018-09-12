@@ -43,6 +43,15 @@
     </div>
   </nav>
   <div class="container">
-    <router-outlet></router-outlet>
+    <div class="row">
+      <div class="col-md-10">
+        <!-- $$ This outlet has no "name" attribute. It is the primary RouterOutlet -->
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-md-2">
+        <!-- $$ This is a secondary RouterOutlet. It maps to the route config whose value of outlet is "msgPanel" -->
+        <router-outlet name="msgPanel"></router-outlet>
+      </div>
+    </div>
   </div>
 </div>
