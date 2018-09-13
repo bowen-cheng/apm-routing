@@ -33,6 +33,9 @@
         <li>
           <!-- $$ This routerLink activates one secondary route inside a RouterOutlet named "popup" with one URL segment ("messages") -->
           <a [routerLink]="[{outlets: {popup: ['messages']}}]">Show Messages</a>
+
+          <!-- $$ This routerLink activates one primary AND one secondary route. Primary outlet has a built-in name: primary -->
+          <!--<a [routerLink]="[{outlets: {primary: ['products', 1, 'edit'], popup: ['messages']}}]">Show Messages</a>-->
         </li>
         <li *ngIf="!authService.isLoggedIn()">
           <a [routerLink]="['/login']">Log In</a>
