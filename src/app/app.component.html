@@ -31,7 +31,8 @@
           <a>Welcome {{ authService.currentUser.userName }}</a>
         </li>
         <li>
-          <a>Show Messages</a>
+          <!-- $$ This routerLink activates one secondary route inside a RouterOutlet named "popup" with one URL segment ("messages") -->
+          <a [routerLink]="[{outlets: {popup: ['messages']}}]">Show Messages</a>
         </li>
         <li *ngIf="!authService.isLoggedIn()">
           <a [routerLink]="['/login']">Log In</a>
@@ -49,8 +50,8 @@
         <router-outlet></router-outlet>
       </div>
       <div class="col-md-2">
-        <!-- $$ This is a secondary RouterOutlet. It maps to the route config whose value of outlet is "msgPanel" -->
-        <router-outlet name="msgPanel"></router-outlet>
+        <!-- $$ This is a secondary RouterOutlet. It maps to the route config whose value of outlet is "popup" -->
+        <router-outlet name="popup"></router-outlet>
       </div>
     </div>
   </div>
