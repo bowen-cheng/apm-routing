@@ -19,8 +19,14 @@ export class LoginComponent {
       const password = loginForm.form.value.password;
       this.authService.login(userName, password);
 
-      // Navigate to the Product List page after log in.
-      this.router.navigate(['/products']);
+      if (!!this.authService.redirectUrl) {
+        // $$ Access the shared variable held in the singleton service
+        this.router.navigateByUrl(this.authService.redirectUrl);
+      } else {
+        // Navigate to the Product List page after log in.
+        this.router.navigate(['/products']);
+      }
+
     } else {
       this.errorMessage = 'Please enter a user name and password.';
     }

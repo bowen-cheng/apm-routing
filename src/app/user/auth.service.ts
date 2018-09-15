@@ -6,6 +6,8 @@ import { User } from './user';
 @Injectable()
 export class AuthService {
   currentUser: User;
+  // $$ This URL is stored in the AuthService given it is a singleton. Thus it is available to all components that has this service injected
+  redirectUrl: string;
 
   constructor(private messageService: MessageService) { }
 
