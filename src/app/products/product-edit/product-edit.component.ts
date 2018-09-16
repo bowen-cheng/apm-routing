@@ -14,9 +14,20 @@ export class ProductEditComponent implements OnInit {
   protected pageTitle = 'Product Edit';
   protected errorMessage: string;
 
-  protected product: Product;
+  private originalProduct: Product;
+  private currentProduct: Product;
 
   private dataIsValid: { [key: string]: boolean };
+
+  get product() {
+    return this.currentProduct;
+  }
+
+  // Called once when the product is retrieved
+  set product(val: Product) {
+    this.currentProduct = val;
+    this.originalProduct = {...val};
+  }
 
   constructor(private productService: ProductService,
               private messageService: MessageService,
@@ -87,6 +98,7 @@ export class ProductEditComponent implements OnInit {
       this.messageService.addMessage(message);
     }
 
+    this.resetState();
     // Navigate back to the product list
     this.router.navigateByUrl('products');
   }
@@ -107,5 +119,15 @@ export class ProductEditComponent implements OnInit {
     this.dataIsValid['info'] = !!(this.product.productName && this.product.productName.length >= 3 && this.product.productCode);
     // "tags" tab
     this.dataIsValid['tags'] = !!(this.product.category && this.product.category.length >= 3);
+  }
+
+  isDirty(): boolean {
+    return JSON.stringify(this.originalProduct) !== JSON.stringify(this.currentProduct);
+  }
+
+  resetState(): void {
+    this.dataIsValid = null;
+    this.currentProduct = null;
+    this.originalProduct = null;
   }
 }

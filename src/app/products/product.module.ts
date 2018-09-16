@@ -7,6 +7,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ProductEditInfoComponent } from './product-edit-info/product-edit-info.component';
 import { ProductEditTagsComponent } from './product-edit-tags/product-edit-tags.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductEditGuard } from './product-edit/product-edit.guard';
 
 import { ProductFilterPipe } from './product-filter.pipe';
 
@@ -44,6 +45,7 @@ import { ProductService } from './product.service';
             path: ':id/edit',
             component: ProductEditComponent,
             resolve: { product: ProductResolverService },
+            canDeactivate: [ProductEditGuard],
             // $$ The children array is used for defining child routes
             // All paths of the child arrays are appended after the path of parent routes
             children: [
