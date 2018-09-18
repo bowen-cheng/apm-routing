@@ -26,7 +26,7 @@ export class ProductEditComponent implements OnInit {
   // Called once when the product is retrieved
   set product(val: Product) {
     this.currentProduct = val;
-    this.originalProduct = {...val};
+    this.originalProduct = { ...val };
   }
 
   constructor(private productService: ProductService,
@@ -37,10 +37,13 @@ export class ProductEditComponent implements OnInit {
   ngOnInit() {
     // $$: We subscribe to the params observable because product ID will change if user clicks "Add Product" link when editing a product
     // The anonymous function passed to subscribe() will be executed everytime any of the route parameters change
-    // this.route.params.subscribe((params) => {
-    //     const productId = +params['id'];
-    //     this.getProduct(productId);
-    //   });
+    /*
+    this.route.params.subscribe((params) => {
+      const productId = +params['id'];
+      this.getProduct(productId);
+    });
+    */
+
 
     // $$: Retrieve the product directly from the ProductResolverService
     // The key "product" must match the route resolver's key definition when the resolver service is setup in router module
@@ -48,13 +51,15 @@ export class ProductEditComponent implements OnInit {
     this.route.data.subscribe(data => this.onProductRetrieved(data['product']));
   }
 
-  // getProduct(id: number): void {
-  //   this.productService.getProduct(id)
-  //     .subscribe(
-  //       (product: Product) => this.onProductRetrieved(product),
-  //       (error: any) => this.errorMessage = <any>error
-  //     );
-  // }
+  /*
+  getProduct(id: number): void {
+    this.productService.getProduct(id)
+      .subscribe(
+        (product: Product) => this.onProductRetrieved(product),
+        (error: any) => this.errorMessage = <any>error
+      );
+  }
+  */
 
   onProductRetrieved(product: Product): void {
     this.product = product;

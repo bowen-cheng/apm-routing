@@ -26,7 +26,9 @@ import { ProductService } from './product.service';
         // $$ By defining canActivate at parent level, all children routes are also protected
         canActivate: [AuthGuard],
         // $$ Component-less route: At the parent route level, there is no component matching path: 'products' (the next line is commented)
-        // component: ProductListComponent,
+        /*
+        component: ProductListComponent,
+        */
         children: [
           {
             // $$ Component-less route: at child route level, the ProductListComponent is displayed as '/products'
@@ -38,12 +40,13 @@ import { ProductService } from './product.service';
             path: ':id',
             component: ProductDetailComponent,
             // $$ The list of resolvers is key-value pairs, where the key is a logical name, the value is a reference to the resolver
-            // The key, "product", is used for retrieving data later in the component class
+            // The key, "product", is used for retrieving data (as a class property) later in the component class (ProductDetailComponent)
             resolve: { product: ProductResolverService }
           },
           {
             path: ':id/edit',
             component: ProductEditComponent,
+            // $$ The key ("product") is used as class property in ProductEditComponent, ProductEditInfoComponent, ProductEditTagsComponent
             resolve: { product: ProductResolverService },
             canDeactivate: [ProductEditGuard],
             // $$ The children array is used for defining child routes

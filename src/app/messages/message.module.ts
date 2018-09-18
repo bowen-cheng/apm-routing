@@ -16,11 +16,13 @@ import { MessageService } from './message.service';
         component: MessageComponent
       }
       // $$ this could be potentially another route config that places a different view into the same RouterOutlet with a different 'path'
-      // {
-      //   outlet: 'popup',
-      //   path: 'summary',
-      //   component: SummaryComponent
-      // }
+      /*
+      {
+        outlet: 'popup',
+        path: 'summary',
+        component: SummaryComponent
+      }
+      */
     ])
   ],
   declarations: [
