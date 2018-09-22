@@ -18,6 +18,7 @@ import { ProductService } from './product.service';
 @NgModule({
   imports: [
     SharedModule,
+    // $$ Lazy loading requirement 2 - All children routes are under one parent
     RouterModule.forChild([
       {
         // $$ The 'path' property does not need a leading slash but routerLink directive does: <a routerLink='/products'></a>
@@ -63,6 +64,7 @@ import { ProductService } from './product.service';
       }
     ])
   ],
+  // $$ Lazy loading requirement 1 - All components are declared in a feature module
   declarations: [
     ProductListComponent,
     ProductDetailComponent,

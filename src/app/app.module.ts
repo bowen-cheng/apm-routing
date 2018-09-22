@@ -11,7 +11,6 @@ import { MessageModule } from './messages/message.module';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ProductData } from './products/product-data';
 /* Feature Modules */
-import { ProductModule } from './products/product.module';
 import { UserModule } from './user/user.module';
 
 @NgModule({
@@ -21,7 +20,8 @@ import { UserModule } from './user/user.module';
     InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
     // $$ Note that ProductModule and UserModule are imported before the root route config (RouterModule.forRoot(...)).
     // The order of importing matters because feature modules have their own route config declared (RouterModule.forChild(...)).
-    ProductModule,
+    // $$ Lazy loading requirement 3 - The lazily loaded feature module is not imported in any other modules
+    /*ProductModule,*/
     UserModule,
     MessageModule,
     AppRoutingModule
