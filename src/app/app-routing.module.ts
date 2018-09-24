@@ -9,12 +9,14 @@ import { PageNotFoundComponent } from './page-not-found.component';
     CommonModule,
     // $$ orders matter as first match wins
     RouterModule.forRoot([
+        // $$ Config for lazily loading ProductModule
+        { path: 'products', loadChildren: 'src/app/products/product.module#ProductModule'},
         { path: 'welcome', component: WelcomeComponent },
         { path: '', redirectTo: 'welcome', pathMatch: 'full' },
         { path: '**', component: PageNotFoundComponent }
       ],
       // $$ this logs navigation events into browser console
-      { enableTracing: true }
+      /* { enableTracing: true } */
     )
   ],
   exports: [

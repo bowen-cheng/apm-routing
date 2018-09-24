@@ -13,7 +13,6 @@ import { ProductFilterPipe } from './product-filter.pipe';
 
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductResolverService } from './product-resolver.service';
-import { ProductService } from './product.service';
 
 @NgModule({
   imports: [
@@ -23,7 +22,7 @@ import { ProductService } from './product.service';
       {
         // $$ The 'path' property does not need a leading slash but routerLink directive does: <a routerLink='/products'></a>
         // Route paths with a leading slash are absolute path. E.g. starting from the root URL,
-        path: 'products',
+        path: '',
         // $$ By defining canActivate at parent level, all children routes are also protected
         canActivate: [AuthGuard],
         // $$ Component-less route: At the parent route level, there is no component matching path: 'products' (the next line is commented)
@@ -72,9 +71,6 @@ import { ProductService } from './product.service';
     ProductEditInfoComponent,
     ProductEditTagsComponent,
     ProductFilterPipe
-  ],
-  providers: [
-    ProductService
   ]
 })
 export class ProductModule {}

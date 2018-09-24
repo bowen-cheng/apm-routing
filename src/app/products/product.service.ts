@@ -5,7 +5,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Product } from './product';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductService {
   private baseUrl = 'api/products';
   private options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
