@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './home/welcome.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { AuthGuard } from './user/auth.guard';
 
 @NgModule({
   imports: [
@@ -10,7 +11,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
     // $$ orders matter as first match wins
     RouterModule.forRoot([
         // $$ Config for lazily loading ProductModule
-        { path: 'products', loadChildren: 'src/app/products/product.module#ProductModule'},
+        { path: 'products', canLoad: [AuthGuard], loadChildren: 'src/app/products/product.module#ProductModule'},
         { path: 'welcome', component: WelcomeComponent },
         { path: '', redirectTo: 'welcome', pathMatch: 'full' },
         { path: '**', component: PageNotFoundComponent }

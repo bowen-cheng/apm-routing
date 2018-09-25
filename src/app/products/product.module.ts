@@ -23,8 +23,10 @@ import { ProductResolverService } from './product-resolver.service';
         // $$ The 'path' property does not need a leading slash but routerLink directive does: <a routerLink='/products'></a>
         // Route paths with a leading slash are absolute path. E.g. starting from the root URL,
         path: '',
-        // $$ By defining canActivate at parent level, all children routes are also protected
+        // $$ By defining route guard at parent level, all children routes are also protected
+        /*
         canActivate: [AuthGuard],
+        */
         // $$ Component-less route: At the parent route level, there is no component matching path: 'products' (the next line is commented)
         /*
         component: ProductListComponent,
